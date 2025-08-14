@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Exemplo 9</title>
+</head>
+<body>
+    <h1> Lógica de Programação com JavaScript</h1>
+
+
+    <div>
+        <button onclick="ligarLuz()"> Ligar a luz </button> 
+        <img id = "gif_1" src="pic_bulboff.gif">
+
+        <button onclick="desligarLuz()"> Desligar a luz </button> 
+    </div>
+
+</body>
+
+    <script>
+    
+        function ligarLuz(){
+            var imagem = document.getElementById("gif_1");
+            imagem.src = "pic_bulbon.gif";
+        }
+
+        function desligarLuz(){
+            var imagem = document.getElementById("gif_1");
+            imagem.src = "pic_bulboff.gif";
+        }
+    </script>
+</html>

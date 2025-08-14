@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo 8</title>
+</head>
+<body>
+    
+    <input type="text" id="name" placeholder="digite seu texto aqui">
+    <button type="button" onclick= imprimir() > Mensagem do Dia </button>
+
+    <input type="text" id="name1" placeholder="digite seu texto aqui">
+    <button type="button" onclick= imprimir2() > Mensagem do Dia </button>
+    
+
+</body>
+    <script>
+        function imprimir(){
+            var texto = document.querySelector('#name').value;
+            alert(texto);
+        }
+
+        function imprimir2(){
+            var texto = document.getElementById("name1").value;
+            alert(texto);
+        }
+    </script>
+</html>
