@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Estrutura de Repetição </title>
+</head>
+<body>
+    <h1> Verificador de Números Pares </h1>
+
+    <input type="number" id="numero" placeholder="digite um Número ">
+    <button type="button" onclick= verificar() > Verificar </button>
+</body>
+
+    <script>
+
+    let pares = [];
+
+    function verificar(){
+        var n1 ;
+        n1 = parseInt(document.getElementById("numero").value);
+
+
+        for(var i = 1; i <= n1 ; i++){
+            if (i % 2 === 0){
+                pares.push(i);
+            }
+        }
+    
+        alert ("Numeros pares até "+ n1 +" : "+ pares.join());
+        pares = [];
+    }
+    
+</script>
+</html>

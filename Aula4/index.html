@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introdução à Css</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <h1> Digite Números Positivos </h1>
+
+    <button type="button" onclick= verificar() > iniciar </button>
+
+</body>
+
+    <script>
+
+    function verificar(){
+        var n1 ;
+        var soma = 0;
+        var contador = 0;
+
+        do {
+            n1 = parseFloat(prompt("Digite um numero positivo"));
+            if(n1 > 0 ){
+                soma += n1;
+                contador ++;
+            }
+        }while(n1 > 0);
+
+        if(contador > 0){
+            var media = soma / contador;
+
+            alert(
+                "Quantidade de números positivos: " + contador +
+                "\n soma dos números positivos : " +soma + 
+                "\n Media "+ media
+            );
+        }else{
+            alert("Nenhum número positivo foi digitado")
+        }
+        
+    }
+    
+</script>
+</html>

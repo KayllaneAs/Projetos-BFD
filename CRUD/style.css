@@ -1,0 +1,70 @@
+body{
+    background-color: antiquewhite;
+}
+
+h1{
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(255, 36, 138);
+    text-align: center;
+}
+
+.container{
+    display: flex;
+    justify-content: center; /* centraliza no meio da tela */
+    gap: 40px; /* controla a distância entre as divs */
+    margin-top: 50px;
+}
+
+
+.btn-adicionar {
+    font-size: 1.3em;       /* tamanho parecido com h3 */
+    font-weight: bold;
+    background-color: #ff4081;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+    white-space: nowrap;
+}
+
+.btn-titulo:hover {
+    background-color: #e73370;
+}
+
+.btn-editar{
+    font-size: 1.3em;       /* tamanho parecido com h3 */
+    font-weight: bold;
+    background-color: #ff4081;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-atualizar {
+    font-size: 1.3em;       /* tamanho parecido com h3 */
+    font-weight: bold;
+    background-color: #ff4081;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-excluir {
+    font-size: 1.3em;       /* tamanho parecido com h3 */
+    font-weight: bold;
+    background-color: #ff4081;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
