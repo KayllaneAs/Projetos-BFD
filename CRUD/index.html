@@ -1,39 +1,140 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title> Guia de viagem </title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Gerenciador de Alunos</title>
 </head>
 <body>
-    <h1 class="titulo_Principal"> Gerenciador de Alunos </h1>
+  <h1 class="titulo_Principal">Gerenciador de Alunos</h1>
+  
+  <button type="button" class="btn-cadastrar" onclick="mostrarFormulario()">Clique aqui para iniciar cadastro</button>
 
-   <div class="container">
-        <div id="adicionar">
-             <button class="btn-adicionar" onclick="adicionar()">Adicionar na Lista</button>
-             
-        </div>
+  <div id="formCadastro" class="container" style="display:none;">
+    <div id="adicionar">
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome"><br><br>
 
-        <div id="editar">
-             <button class="btn-editar" onclick="editar()">Editar lista</button>
-        </div>
+      <label for="id">ID:</label>
+      <input type="number" id="id"><br><br>
 
-        <div id="atualizar">
-            <button class="btn-atualizar" onclick="atualizar()">Atualizar lista</button>
-        </div>
+      <label for="email">Email:</label>
+      <input type="text" id="email"><br><br>
+    </div>
 
-        <div id="excluir">
-            <button class="btn-excluir" onclick="excluir()">Excluir</button>
-        </div>
+    <div class="container-botoes">
+      <button type="button" class="btn-adicionar" onclick="adicionar()">Adicionar na Lista</button>
+     <!-- <button type="button" class="btn-atualizar" onclick="atualizar()">Atualizar Lista</button> --> 
+      <button type="button" class="btn-excluir" onclick="excluir()">Deletar da Lista</button>
+      <button type="button" class="btn-consultar" onclick="mostrarConsulta()">Consultar Aluno</button>
+      <button type="button" class="btn-listar" onclick="listar()">Listar alunos</button>
+    </div>
 
-   </div>
-    
-</body>
+  
+    <div id="consultaDiv" style="display:none; margin-top:10px;">
+      <label for="consulta">Digite o ID do aluno:</label>
+      <input type="number" id="consulta" placeholder="ID do aluno">
+      <button type="button" onclick="consultar()">Buscar</button>
+    </div>
+
+    <div id="info"></div>
+  </div>
+
 <script>
-    function adicionar(){
-        
-    }
-</script>
+  let alunos = [];
 
+  function mostrarFormulario() {
+    document.getElementById("formCadastro").style.display = "block";
+  }
+
+  function adicionar(){
+    const nome = document.getElementById("nome").value;
+    const id = Number(document.getElementById("id").value);
+    const email = document.getElementById("email").value;
+
+    if (nome.trim() === "" || isNaN(id) || email.trim() === "") {
+      alert("Preencha todos os campos corretamente!");
+    } else {
+      // evita duplicar ID
+      if (alunos.some(aluno => aluno.id === id)) {
+        alert("Já existe um aluno com esse ID!");
+        return;
+      }
+
+      alunos.push({ nome, id, email });
+
+      document.getElementById("info").innerHTML =
+        "Aluno <b>" + nome + "</b> adicionado!";
+
+      limparCampos();
+    }
+  }
+
+  function listar() {
+    let texto_lista = "<h3>Lista de alunos</h3><ul>";
+
+    alunos.forEach(aluno => {
+      texto_lista += `
+        <li>
+          <input type="checkbox" class="chkAluno" value="${aluno.id}">
+          ID ${aluno.id} - ${aluno.nome} (${aluno.email})
+          <button type="button" onclick="editar(${aluno.id})">Editar</button>
+        </li> `;
+    });
+
+    texto_lista += "</ul>";
+
+    document.getElementById("info").innerHTML =
+      "<h4> O total de alunos é: " + alunos.length + "</h4>" +
+      texto_lista ;
+  }
+
+  function excluir(){
+    const selecionados = Array.from(document.querySelectorAll(".chkAluno:checked"))
+      .map(chk => Number(chk.value));
+
+    if (selecionados.length === 0) {
+      alert("Nenhum aluno selecionado!");
+      return;
+    }
+
+    alunos = alunos.filter(aluno => !selecionados.includes(aluno.id));
+    listar(); 
+  }
+
+  function editar(id) {
+    const aluno = alunos.find(a => a.id === id);
+    if (aluno) {
+      document.getElementById("id").value = aluno.id;
+      document.getElementById("nome").value = aluno.nome;
+      document.getElementById("email").value = aluno.email;
+    }
+  }
+
+
+  function consultar() {
+    const idConsulta = Number(document.getElementById("consulta").value);
+    let encontrado = alunos.find(aluno => aluno.id === idConsulta);
+
+    if (encontrado) {
+      document.getElementById("info").innerHTML =
+        `<h4>Aluno encontrado:</h4>
+         ID: ${encontrado.id} <br>
+         Nome: ${encontrado.nome} <br>
+         Email: ${encontrado.email}`;
+    } else {
+      document.getElementById("info").innerHTML = "<p>Aluno não encontrado!</p>";
+    }
+
+    document.getElementById("consulta").value = "";
+  }
+
+  function limparCampos(){
+    document.getElementById("nome").value = "";
+    document.getElementById("id").value = "";
+    document.getElementById("email").value = "";
+  }
+</script>
+</body>
 </html>
