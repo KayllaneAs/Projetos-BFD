@@ -1,147 +1,106 @@
-body{
+
+body {
     background-color: antiquewhite;
+    font-family: Arial, sans-serif;
 }
 
-h1{
+
+h1 {
     font-family: 'Times New Roman', Times, serif;
     color: rgb(255, 36, 138);
     text-align: center;
 }
 
-.btn-cadastrar {
-    font-size: 1.2em;       
+button{
+    font-size: 1.1em;       
     font-weight: bold;
-    background-color: #ff4081;
-    color: white;
     border: none;
     padding: 10px 20px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background 0.3s;
-    
-}
-
-.container{
-    display: flex;
-    justify-content: center; /* centraliza no meio da tela */
-    gap: 40px; /* controla a distância entre as divs */
-    margin: auto;
-    
-}
-
-.btn-adicionar {
-    font-size: 1.2em;      
-    font-weight: bold;
-    background-color: #ff4081;
-    color: white;
-    border: none;
-    padding: 10px 20px;
+    border-color: aliceblue;
     border-radius: 8px;
     cursor: pointer;
     transition: background 0.3s;
-    display: flex;
-    
-    
-}
-
-.btn-titulo:hover {
-    background-color: #e73370;
-}
-
-.btn-editar{
-    font-size: 1.2em;       
-    font-weight: bold;
-    background-color: #ff4081;
     color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.3s;
+    margin: 5px;
+    width: 200px; 
+    text-align: center;
+}
+.btn-adicionar { 
+    background-color: #ff94c6; 
+}  
+.btn-consultar { 
+    background-color: #ff17b6; 
+}  
+.btn-listar    { 
+    background-color: #ff38d4; 
+} 
+.btn-atualizar { 
+    background-color: #ff00a2; 
+}  
+.btn-cadastrar { 
+    background-color: #ff4081; 
+}  
+.btn-buscar {
+    background-color: #ff4081; 
 }
 
-.btn-atualizar {
-    font-size: 1.2em;       
-    font-weight: bold;
-    background-color: #ff4081;
-    color: white;
+.btn-editar, .btn-excluir {
+    background-color: antiquewhite;
+    color: black;
+    text-align: center;
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 10px;
     border: none;
-    padding: 10px 20px;
-    border-radius: 8px;
     cursor: pointer;
-    transition: background 0.3s;
-}
-
-.btn-excluir {
-    font-size: 1.2em;       
-    font-weight: bold;
-    background-color: #ff4081;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.3s;
-    
+    width: auto; 
 }
 
 
-
-.btn-listar {
-    font-size: 1.2em;       
-    font-weight: bold;
-    background-color: #ff4081;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background 0.3s;
+.btn:hover {
+    opacity: 0.85;
 }
-
-.btn-atualizar {
-    font-size: 1.2em;       
-    font-weight: bold;
-    background-color: #ff4081;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.btn-consultar {
-    font-size: 1.2em;       
-    font-weight: bold;
-    background-color: #ff4081;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
 
 
 #formCadastro {
-      display: none; /* começa escondido */
-      margin-top: 20px;
-      padding: 15px;
-      border: 1px solid #ff00bb;
-      border-radius: 8px;
-      width: auto;
-      text-align: center;
+    display: block; 
+    margin-top: 20px;
+    padding: 20px;
+    border: none;
+    border-radius: 8px;
+    width: 350px;
+    text-align: left;
+    background: #fff;
+    margin: auto;
+}
+
+#formCadastro label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #444;
+}
+
+#formCadastro input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+
+.container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
 }
 
 .container-botoes {
     display: flex;
-    gap: 20px; 
-    justify-content: center;
     flex-direction: column;
-    margin-top: 2px;
     align-items: center;
-    
+    gap: 12px;
+    margin-top: 20px;
 }
-

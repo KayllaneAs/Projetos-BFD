@@ -8,10 +8,8 @@
 </head>
 <body>
   <h1 class="titulo_Principal">Gerenciador de Alunos</h1>
-  
-  <button type="button" class="btn-cadastrar" onclick="mostrarFormulario()">Clique aqui para iniciar cadastro</button>
 
-  <div id="formCadastro" class="container" style="display:none;">
+  <div id="formCadastro" class="container">
     <div id="adicionar">
       <label for="nome">Nome:</label>
       <input type="text" id="nome"><br><br>
@@ -24,18 +22,16 @@
     </div>
 
     <div class="container-botoes">
-      <button type="button" class="btn-adicionar" onclick="adicionar()">Adicionar na Lista</button>
-     <!-- <button type="button" class="btn-atualizar" onclick="atualizar()">Atualizar Lista</button> --> 
-      <button type="button" class="btn-excluir" onclick="excluir()">Deletar da Lista</button>
-      <button type="button" class="btn-consultar" onclick="mostrarConsulta()">Consultar Aluno</button>
-      <button type="button" class="btn-listar" onclick="listar()">Listar alunos</button>
+      <button type="button" id="btnAdicionar" class="btn-adicionar" onclick="adicionar()">Adicionar</button>
+      <button type="button" id="btnAtualizar" class="btn-atualizar" onclick="atualizar()" style="display:none;">Atualizar</button> 
+      <button type="button" class="btn-consultar" onclick="mostrarConsulta()">Consultar</button>
+      <button type="button" class="btn-listar" onclick="listar()">Listar</button>
     </div>
 
-  
     <div id="consultaDiv" style="display:none; margin-top:10px;">
-      <label for="consulta">Digite o ID do aluno:</label>
-      <input type="number" id="consulta" placeholder="ID do aluno">
-      <button type="button" onclick="consultar()">Buscar</button>
+      <label for="consulta">Digite o nome ou ID do aluno:</label>
+      <input type="text" id="consulta" placeholder="Nome ou ID do aluno">
+      <button type="button" class="btn-buscar" onclick="consultar()">Buscar</button>
     </div>
 
     <div id="info"></div>
@@ -43,10 +39,7 @@
 
 <script>
   let alunos = [];
-
-  function mostrarFormulario() {
-    document.getElementById("formCadastro").style.display = "block";
-  }
+  let editandoId = null; 
 
   function adicionar(){
     const nome = document.getElementById("nome").value;
@@ -56,7 +49,6 @@
     if (nome.trim() === "" || isNaN(id) || email.trim() === "") {
       alert("Preencha todos os campos corretamente!");
     } else {
-      // evita duplicar ID
       if (alunos.some(aluno => aluno.id === id)) {
         alert("Já existe um aluno com esse ID!");
         return;
@@ -68,6 +60,7 @@
         "Aluno <b>" + nome + "</b> adicionado!";
 
       limparCampos();
+      listar();
     }
   }
 
@@ -77,10 +70,10 @@
     alunos.forEach(aluno => {
       texto_lista += `
         <li>
-          <input type="checkbox" class="chkAluno" value="${aluno.id}">
           ID ${aluno.id} - ${aluno.nome} (${aluno.email})
-          <button type="button" onclick="editar(${aluno.id})">Editar</button>
-        </li> `;
+          <button type="button" class="btn-editar" onclick="editar(${aluno.id})">Editar</button>
+          <button type="button" class="btn-excluir" onclick="excluir(${aluno.id})">Excluir</button>
+        </li>`;
     });
 
     texto_lista += "</ul>";
@@ -90,17 +83,11 @@
       texto_lista ;
   }
 
-  function excluir(){
-    const selecionados = Array.from(document.querySelectorAll(".chkAluno:checked"))
-      .map(chk => Number(chk.value));
-
-    if (selecionados.length === 0) {
-      alert("Nenhum aluno selecionado!");
-      return;
+  function excluir(id) {
+    if (confirm("Tem certeza que deseja excluir este aluno?")) {
+      alunos = alunos.filter(aluno => aluno.id !== id);
+      listar();
     }
-
-    alunos = alunos.filter(aluno => !selecionados.includes(aluno.id));
-    listar(); 
   }
 
   function editar(id) {
@@ -109,13 +96,56 @@
       document.getElementById("id").value = aluno.id;
       document.getElementById("nome").value = aluno.nome;
       document.getElementById("email").value = aluno.email;
+
+      editandoId = id; 
+      document.getElementById("id").disabled = true; 
+      document.getElementById("btnAdicionar").style.display = "none";
+      document.getElementById("btnAtualizar").style.display = "inline-block";
     }
   }
 
+  function atualizar() {
+    const nome = document.getElementById("nome").value;
+    const email = document.getElementById("email").value;
+
+    if (nome.trim() === "" || email.trim() === "") {
+      alert("Preencha todos os campos corretamente!");
+      return;
+    }
+
+    const aluno = alunos.find(a => a.id === editandoId);
+    if (aluno) {
+      aluno.nome = nome;
+      aluno.email = email;
+    }
+
+    document.getElementById("info").innerHTML =
+      "Aluno <b>" + nome + "</b> atualizado!";
+    
+    limparCampos();
+    listar();
+
+    editandoId = null;
+    document.getElementById("id").disabled = false;
+    document.getElementById("btnAdicionar").style.display = "inline-block";
+    document.getElementById("btnAtualizar").style.display = "none";
+  }
 
   function consultar() {
-    const idConsulta = Number(document.getElementById("consulta").value);
-    let encontrado = alunos.find(aluno => aluno.id === idConsulta);
+    const valor = document.getElementById("consulta").value.trim();
+    let encontrado;
+
+    if (valor === "") {
+      alert("Digite um nome ou ID para consultar!");
+      return;
+    }
+
+    if (!isNaN(valor)) {
+      const idConsulta = Number(valor);
+      encontrado = alunos.find(aluno => aluno.id === idConsulta);
+    } else {
+      encontrado = alunos.find(aluno => aluno.nome.toLowerCase() === valor.toLowerCase());
+    }
 
     if (encontrado) {
       document.getElementById("info").innerHTML =
@@ -128,6 +158,11 @@
     }
 
     document.getElementById("consulta").value = "";
+  }
+
+  function mostrarConsulta() {
+    const div = document.getElementById("consultaDiv");
+    div.style.display = div.style.display === "none" ? "block" : "none";
   }
 
   function limparCampos(){
