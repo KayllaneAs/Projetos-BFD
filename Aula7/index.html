@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String</title>
+</head>
+<body>
+    <h1> Concatenação de strings</h1>
+     <p id="demo"></p>
+     <p id="demo1"></p>
+     <p id="demo2"></p>
+     <p id="demo3"></p>
+     <p id="demo4"></p>
+     <p id="demo5"></p>
+     <p id="demo6"></p>
+     <p id="demo7"></p>
+     
+</body>
+<script>
+
+    //LengthvRetorna o comprimento de uma String
+    let text = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    let length = text.length
+    document.getElementById("demo").innerHTML = "O comprimento é: " + length;
+
+    //concat () une duas strings
+
+    let text1 = "I";
+    let text2 = "Love";
+    let text3 = text1.concat(" ", text2);
+    document.getElementById("demo2").innerHTML = text3;
+
+    //metodos para concatenar strings 
+
+    let text4 = "maca,banana,kiwi";
+    let parte = text4.slice(12);
+    document.getElementById("demo3").innerHTML = parte;
+
+    //converter para maiusucla 
+
+    let minusculo = "Hello";
+    let maiusucla = minusculo.toUpperCase();
+    document.getElementById("demo4").innerHTML = maiusucla;
+
+    //converter para minusculo 
+
+    let mais = "OPA";
+    let menos = mais.toLowerCase();
+    document.getElementById("demo5").innerHTML = menos;
+
+    //Substituição de um valor especifico 
+
+    let texto = "Eu gosto de Java, mas também estudo Java.";
+    let subs = texto.replace("Java", "JavaScript");
+
+    document.getElementById("demo1").innerHTML = subs;
+
+
+    // indexOf retorna o índice da primeira ocorrência de uma string
+    let exemplo = "Por favor, localize a palavra 'localize' aqui!";
+    let index = exemplo.indexOf("localize");
+    document.getElementById("demo6").innerHTML = index;
+
+    // o includes () retorna verdadeiro se uma string contiver um valor especificado
+
+    let valor = "hello world, welcome to the universe";
+    let result=  valor.includes("world");
+    document.getElementById("demo7").innerHTML = result;
+
+</script>
+</html>

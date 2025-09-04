@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Manipulação de Strings </title>
+</head>
+<body>
+    <label for="palavra1">Palavra 1: </label>
+    <input type="text" id="nome1"><br><br>
+
+    <label for="palavra2">Palavra 2: </label>
+    <input type="text" id="nome2"><br><br>
+
+    <button type="button" onclick="analisar()"> Analisar palavras </button>
+
+    <p id="resultado"></p>
+</body>
+
+<script>
+    function analisar(){
+        let palavra1 = document.getElementById("nome1").value;
+        let palavra2 = document.getElementById("nome2").value;
+        let resultado = "";
+
+    
+        resultado += "Comprimento da Palavra 1: " + palavra1.length + "<br>";
+        resultado += "Comprimento da Palavra 2: " + palavra2.length + "<br><br>";
+
+        
+        let concatenado = palavra1.concat(" ", palavra2);
+        resultado += "Concatenação: " + concatenado + "<br>";
+
+
+        resultado += "Slice da Palavra 1 (0 a 3): " + palavra1.slice(0,3) + "<br>";
+
+        
+        resultado += "IndexOf da Palavra 2 na concatenação: " + concatenado.indexOf(palavra2) + "<br>";
+
+        
+        resultado += "Palavra 1 em MAIÚSCULO: " + palavra1.toUpperCase() + "<br>";
+        resultado += "Palavra 2 em minúsculo: " + palavra2.toLowerCase() + "<br>";
+
+        
+        let replace1 = palavra1.replace("a", "@"); 
+        let replace2 = palavra2.replace("E", "@"); 
+        resultado += "Palavra 1 trocando 'a' por '@': " + replace1 + "<br>";
+        resultado += "Palavra 2 trocando 'e' por '@': " + replace2 + "<br>";
+
+        document.getElementById("resultado").innerHTML = resultado;
+    }
+</script>
+</html>
