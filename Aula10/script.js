@@ -1,6 +1,6 @@
 let pessoas = {}; 
 
-// Função para salvar no localStorage
+//Função para salvar no localStorage
 function salvarLocalStorage() {
   localStorage.setItem("tarefas_pessoas", JSON.stringify(pessoas));
 }
