@@ -1,0 +1,16 @@
+body {
+  background-color: rgb(240, 208, 233);
+}
+
+.caixa ul li {
+  color: rgb(250, 114, 155);
+}
+.caixa a {
+  text-decoration: none;
+  color: black;
+}
+.caixa a:hover {
+  color: rgb(13, 0, 255);
+}
+
+/*# sourceMappingURL=style.css.map */

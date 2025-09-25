@@ -1,0 +1,24 @@
+$cor_principal: rgb(240, 208, 233);
+
+
+body {
+
+    background-color: $cor_principal;
+}   
+
+.caixa{
+    ul{
+        li{
+            color: rgb(250, 114, 155);
+        }
+    }
+
+    a{
+        text-decoration: none;
+        color: black;
+    }
+    
+    a:hover{
+        color: rgb(13, 0, 255);
+    }
+}
