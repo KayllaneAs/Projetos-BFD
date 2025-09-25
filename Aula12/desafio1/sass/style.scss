@@ -1,0 +1,78 @@
+$cor-principal: rgb(240, 208, 233);
+$cor-menu: rgb(255, 145, 178);
+$cor-menu-texto: rgb(250, 114, 155);
+$cor-link: black;
+$cor-link-hover: rgb(13, 0, 255);
+$cor-btn: rgb(247, 89, 136);
+$cor-btn-hover: rgb(255, 29, 108);
+$cor-btn-texto: white;
+
+%clicavel {
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+@mixin fancy-box($radius: 8px, $shadow: 0 4px 6px rgba(0,0,0,0.1)) {
+  border-radius: $radius;
+  box-shadow: $shadow;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+
+body {
+  text-align: center;
+  background-color: $cor-principal;
+  font-family: Arial, sans-serif;
+}
+
+.menu {
+  background-color: $cor-menu;
+
+  ul {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-size: clamp(1.2rem, 2vw, 2.5rem);
+    list-style: none; //pra remover as bolinhas
+
+    li {
+      display: inline-block;
+
+      a {
+        text-decoration: none;
+        color: $cor-link;
+        font-weight: bold;
+
+        &:hover,
+        &:focus {
+          color: $cor-link-hover;
+          outline: none;
+        }
+      }
+    }
+  }
+}
+
+.btn {
+  background-color: $cor-btn;
+  border: none;
+  padding: 10px 20px;
+  color: $cor-btn-texto;
+  font-size: 1.2em;
+  margin-top: 30px;
+
+  @extend %clicavel;
+  @include fancy-box(12px, 0 6px 8px rgba(0,0,0,0.2));
+
+  &:hover,
+  &:focus {
+    background-color: $cor-btn-hover;
+    outline: none;
+  }
+}

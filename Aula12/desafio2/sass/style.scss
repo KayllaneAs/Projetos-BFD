@@ -1,0 +1,90 @@
+$cor-principal: rgb(253, 235, 249);
+$cor-destaque: rgb(253, 52, 179);
+$cor-card: white;
+$cor-fonte: rgb(0, 0, 0);
+
+$sombra-padrao: 0 4px 8px rgba(0, 0, 0, 0.1);
+$hover-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+
+$raio-padrao: 10px;
+$padding-card: 20px;
+$gap-cards: 20px;
+$hover-translate: -5px;
+
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: $cor-principal;
+  font-family: 'Georgia', serif;
+  text-align: center;
+}
+
+
+%titulo-card {
+  font-size: clamp(1.2rem, 2vw, 2rem);
+  color: $cor-destaque;
+  margin: 0 0 10px 0;
+  padding-top: 10px;
+  text-align: center;
+  border-top: 2px solid $cor-destaque;
+}
+
+
+%texto-card {
+  font-size: 1.1rem;
+  color: $cor-fonte;
+  line-height: 1.5;
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+
+@mixin card-estilizado($raio, $sombra, $cor) {
+  border-radius: $raio;
+  box-shadow: $sombra;
+  background-color: $cor;
+  padding: $padding-card;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default; 
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: $gap-cards;
+  flex-wrap: wrap;
+  padding: $padding-card;
+
+  .card {
+    @include card-estilizado($raio-padrao, $sombra-padrao, $cor-card);
+    flex: 1 1 300px;
+    max-width: 350px;
+    text-align: left;
+
+    &:hover {
+      transform: translateY($hover-translate);
+      box-shadow: $hover-shadow;
+    }
+
+    h3 {
+      @extend %titulo-card;
+    }
+
+    p {
+      @extend %texto-card;
+    }
+  }
+}
+
+
+@media (max-width: 400px) {
+  .cards {
+    gap: 15px;
+    padding: 15px;
+
+    .card {
+      padding: 15px;
+    }
+  }
+}

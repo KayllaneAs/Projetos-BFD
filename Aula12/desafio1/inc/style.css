@@ -1,0 +1,57 @@
+.btn {
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+body {
+  text-align: center;
+  background-color: rgb(240, 208, 233);
+  font-family: Arial, sans-serif;
+}
+
+.menu {
+  background-color: rgb(255, 145, 178);
+}
+.menu ul {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-size: clamp(1.2rem, 2vw, 2.5rem);
+  list-style: none;
+}
+.menu ul li {
+  display: inline-block;
+}
+.menu ul li a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+.menu ul li a:hover, .menu ul li a:focus {
+  color: rgb(13, 0, 255);
+  outline: none;
+}
+
+.btn {
+  background-color: rgb(247, 89, 136);
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  font-size: 1.2em;
+  margin-top: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+.btn:hover, .btn:focus {
+  background-color: rgb(255, 29, 108);
+  outline: none;
+}
+
+/*# sourceMappingURL=style.css.map */

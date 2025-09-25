@@ -1,0 +1,58 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(253, 235, 249);
+  font-family: "Georgia", serif;
+  text-align: center;
+}
+
+.cards .card h3 {
+  font-size: clamp(1.2rem, 2vw, 2rem);
+  color: rgb(253, 52, 179);
+  margin: 0 0 10px 0;
+  padding-top: 10px;
+  text-align: center;
+  border-top: 2px solid rgb(253, 52, 179);
+}
+
+.cards .card p {
+  font-size: 1.1rem;
+  color: rgb(0, 0, 0);
+  line-height: 1.5;
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+.cards .card {
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+  flex: 1 1 300px;
+  max-width: 350px;
+  text-align: left;
+}
+.cards .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+@media (max-width: 400px) {
+  .cards {
+    gap: 15px;
+    padding: 15px;
+  }
+  .cards .card {
+    padding: 15px;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
