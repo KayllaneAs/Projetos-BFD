@@ -1,0 +1,135 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    background-color: #ffe5fc;
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    color: #4a148c;
+    line-height: 1.6;
+    cursor: default;
+    
+}
+
+.nome {
+    text-align: center;
+    margin: 20px 0;
+}
+
+header {
+    text-align: center;
+    margin: 30px 20px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #6a1b9a;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2rem;
+    color: #7b1fa2;
+}
+
+nav {
+    background: linear-gradient(135deg, #fad1e7, #f8bbd0);
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+nav a {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #4a148c;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    padding: 8px 12px;
+    border-radius: 6px;
+    
+}
+
+nav a:hover {
+    background-color: #f48fb1;
+    color: #fff;
+}
+
+
+.secao-principal {
+    background: #f3e5f5;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    max-width: 900px;
+    margin: 30px auto;
+}
+
+ul {
+    list-style-type: none;
+    margin-top: 15px;
+}
+
+.FotoPessoal {
+    width: 200px;
+    border-radius: 50%;
+    border: 4px solid #f8bbd0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease-in-out;
+    display: block;
+    margin: 0 auto;
+}
+
+.FotoPessoal:hover {
+    transform: scale(1.05);
+}
+
+.redes-sociais {
+    background: linear-gradient(135deg, #fad1e7, #f8bbd0);
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    margin-top: 20px;
+    
+}
+.redes-sociais a{
+    text-decoration: none;
+    color: #4a148c;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.icon {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+    border-radius: 10px;
+    
+}
+
+.icon:hover {
+    transform: scale(1.2);
+}
+
+.legenda {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #7b1fa2;
+    margin-top: 15px;
+}
