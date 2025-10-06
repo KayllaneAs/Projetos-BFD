@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Spotify</title>
+  <link href="output.css" rel="stylesheet">
+</head>
+<body class="min-h-screen bg-gray-100 flex justify-center items-center">
+
+  <main class="flex flex-col items-center gap-6 w-full max-w-sm">
+
+    <!-- Logo e título -->
+    <div class="flex flex-col items-center gap-4">
+      <img src="../img/spotify-icon.webp" alt="Spotify Logo" class="w-20 h-20">
+      <h1 class="text-3xl font-bold text-center">Entrar no Spotify</h1>
+    </div>
+
+    <!-- Card com botões estilo Spotify -->
+    <div class="bg-white shadow-lg w-full rounded-3xl overflow-hidden">
+      <button class="w-full py-3 bg-indigo-500 text-white rounded-t-3xl hover:bg-indigo-600 transition-colors">
+        Continuar com o Google
+      </button>
+      <button class="w-full py-3 bg-blue-600 text-white border-t border-gray-200 hover:bg-blue-700 transition-colors">
+        Continuar com o Facebook
+      </button>
+      <button class="w-full py-3 bg-black text-white border-t border-gray-200 hover:bg-gray-800 transition-colors">
+        Continuar com a Apple
+      </button>
+      <button class="w-full py-3 bg-gray-200 text-black rounded-b-3xl border-t border-gray-200 hover:bg-gray-300 transition-colors">
+        Continuar com um número de telefone
+      </button>
+    </div>
+
+    <!-- Formulário de login integrado -->
+    <div class="bg-white shadow-lg w-full rounded-3xl overflow-hidden">
+      <form class="flex flex-col gap-4 p-6">
+        <div class="flex flex-col gap-2">
+          <label for="email" class="text-sm font-medium">E-mail ou nome de usuário</label>
+          <input id="email" type="text" placeholder="Email ou nome de usuário"
+            class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+        </div>
+        <button type="submit"
+          class="w-full bg-green-500 text-white py-3 rounded-2xl hover:bg-green-600 transition-colors">
+          Continuar
+        </button>
+      </form>
+    </div>
+
+    <!-- Link de cadastro -->
+    <div class="text-sm text-gray-600 text-center">
+      <p>
+        Não tem uma conta? 
+        <a href="#" class="text-amber-500 font-bold underline">Inscreva-se no Spotify</a>
+      </p>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="py-6 text-center text-sm text-gray-400">
+    <ul class="flex justify-center gap-2 flex-wrap">
+      <li>Este site é protegido pelo reCAPTCHA e está sujeito a</li>
+      <li>Política de Privacidade e aos Termos de serviço do</li>
+      <li>Google.</li>
+    </ul>
+  </footer>
+
+</body>
+</html>
