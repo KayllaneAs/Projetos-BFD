@@ -1,0 +1,207 @@
+// 🎮 Paleta de cores
+$bg: #0f172a;
+$accent: #22d3ee;
+$snake: #22c55e;
+$fruit: #ef4444;
+$text: #f1f5f9;
+$panel: #1e293b;
+
+// 🧱 Reset
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: radial-gradient(circle at center, #0f172a 0%, #020617 100%);
+  color: $text;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+// 🧩 Container principal
+.container {
+  background: rgba($panel, 0.9);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 0 25px rgba($accent, 0.2);
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+
+  header.top {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 15px;
+
+    h1 {
+      color: $accent;
+      font-size: 1.8rem;
+      letter-spacing: 1px;
+      text-shadow: 0 0 10px rgba($accent, 0.3);
+    }
+
+    .score {
+      font-size: 1.1rem;
+      span {
+        color: $snake;
+        font-weight: bold;
+      }
+    }
+
+    .level-select {
+      select {
+        background: $panel;
+        color: $text;
+        border: 1px solid rgba($accent, 0.3);
+        border-radius: 6px;
+        padding: 4px 8px;
+        outline: none;
+        transition: 0.2s;
+        &:hover {
+          border-color: $accent;
+        }
+      }
+    }
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  canvas#game {
+    border: 2px solid $accent;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba($accent, 0.4);
+    background: linear-gradient(135deg, #0a192f 0%, #172a46 100%);
+    margin-bottom: 20px;
+  }
+
+  .controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    button,
+    select {
+      background: $accent;
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      padding: 8px 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s ease;
+      box-shadow: 0 0 10px rgba($accent, 0.2);
+
+      &:hover {
+        background: lighten($accent, 10%);
+        transform: scale(1.05);
+      }
+
+      &:active {
+        transform: scale(0.95);
+      }
+    }
+
+    label {
+      font-weight: bold;
+      margin-right: 5px;
+    }
+  }
+
+  .hint {
+    font-size: 0.9rem;
+    opacity: 0.7;
+  }
+
+  footer {
+    margin-top: 10px;
+    small {
+      opacity: 0.6;
+      font-size: 0.8rem;
+    }
+  }
+}
+
+// 💀 Tela de Game Over
+.game-over-screen {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.5s ease forwards;
+
+  .game-over-box {
+    background: $panel;
+    padding: 30px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba($accent, 0.3);
+    animation: popIn 0.4s ease forwards;
+
+    h2 {
+      color: $accent;
+      margin-bottom: 10px;
+      font-size: 1.8rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      span {
+        color: $snake;
+      }
+    }
+
+    button {
+      background: $accent;
+      color: #000;
+      border: none;
+      border-radius: 10px;
+      padding: 10px 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s ease;
+      &:hover {
+        background: lighten($accent, 10%);
+      }
+    }
+  }
+}
+
+// 🌈 Animações
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

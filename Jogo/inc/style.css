@@ -1,0 +1,179 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: radial-gradient(circle at center, #0f172a 0%, #020617 100%);
+  color: #f1f5f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.container {
+  background: rgba(30, 41, 59, 0.9);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 0 25px rgba(34, 211, 238, 0.2);
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.container header.top {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.container header.top h1 {
+  color: #22d3ee;
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+  text-shadow: 0 0 10px rgba(34, 211, 238, 0.3);
+}
+.container header.top .score {
+  font-size: 1.1rem;
+}
+.container header.top .score span {
+  color: #22c55e;
+  font-weight: bold;
+}
+.container header.top .level-select select {
+  background: #1e293b;
+  color: #f1f5f9;
+  border: 1px solid rgba(34, 211, 238, 0.3);
+  border-radius: 6px;
+  padding: 4px 8px;
+  outline: none;
+  transition: 0.2s;
+}
+.container header.top .level-select select:hover {
+  border-color: #22d3ee;
+}
+.container main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.container canvas#game {
+  border: 2px solid #22d3ee;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(34, 211, 238, 0.4);
+  background: linear-gradient(135deg, #0a192f 0%, #172a46 100%);
+  margin-bottom: 20px;
+}
+.container .controls {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.container .controls button,
+.container .controls select {
+  background: #22d3ee;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+  box-shadow: 0 0 10px rgba(34, 211, 238, 0.2);
+}
+.container .controls button:hover,
+.container .controls select:hover {
+  background: rgb(81.3571428571, 220.4285714286, 241.6428571429);
+  transform: scale(1.05);
+}
+.container .controls button:active,
+.container .controls select:active {
+  transform: scale(0.95);
+}
+.container .controls label {
+  font-weight: bold;
+  margin-right: 5px;
+}
+.container .hint {
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+.container footer {
+  margin-top: 10px;
+}
+.container footer small {
+  opacity: 0.6;
+  font-size: 0.8rem;
+}
+
+.game-over-screen {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.5s ease forwards;
+}
+.game-over-screen .game-over-box {
+  background: #1e293b;
+  padding: 30px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.3);
+  animation: popIn 0.4s ease forwards;
+}
+.game-over-screen .game-over-box h2 {
+  color: #22d3ee;
+  margin-bottom: 10px;
+  font-size: 1.8rem;
+}
+.game-over-screen .game-over-box p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+.game-over-screen .game-over-box p span {
+  color: #22c55e;
+}
+.game-over-screen .game-over-box button {
+  background: #22d3ee;
+  color: #000;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+.game-over-screen .game-over-box button:hover {
+  background: rgb(81.3571428571, 220.4285714286, 241.6428571429);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes popIn {
+  0% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

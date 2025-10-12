@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Snake </title>
+  <link rel="stylesheet" href="inc/style.css"> 
+</head>
+<body>
+  <div class="container">
+    <header class="top">
+      <h1>Snake</h1>
+      <div class="score">Pontuação: <span id="score">0</span></div>
+      <div class="level-select">
+        <label for="level">Nível:</label>
+        <select id="level">
+          <option value="facil" selected>Fácil</option>
+          <option value="medio">Médio</option>
+          <option value="dificil">Difícil</option>
+        </select>
+      </div>
+    </header>
+
+    <main>
+      <canvas id="game" width="500" height="500" aria-label="Tela do jogo Snake"></canvas>
+
+      <div class="controls">
+        <button id="start">Iniciar</button>
+        <button id="pause">Pausar</button>
+        <button id="restart">Reiniciar</button>
+
+        <label for="speed">Velocidade</label>
+        <select id="speed">
+          <option value="160">Lento</option>
+          <option value="120" selected>Médio</option>
+          <option value="80">Rápido</option>
+          <option value="50">Muito Rápido</option>
+        </select>
+      </div>
+
+      <p class="hint">Use ← ↑ → ↓ ou WASD para controlar.</p>
+    </main>
+
+    <footer>
+      <small>Kayllane Araújo</small>
+    </footer>
+  </div>
+
+  <!-- Tela de Game Over -->
+  <div class="game-over-screen">
+    <div class="game-over-box">
+      <h2>Game Over!</h2>
+      <p>Pontuação: <span id="final-score">0</span></p>
+      <button id="restart-go">Reiniciar</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    // vincula o nível selecionado
+    const levelSelect = document.getElementById('level');
+    levelSelect.addEventListener('change', () => {
+      level = levelSelect.value;
+    });
+
+    document.getElementById('restart-go').addEventListener('click', restart);
+  </script>
+</body>
+</html>
