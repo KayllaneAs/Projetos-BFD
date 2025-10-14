@@ -1,4 +1,3 @@
-// 🎮 Paleta de cores
 $bg: #0f172a;
 $accent: #22d3ee;
 $snake: #22c55e;
@@ -6,7 +5,7 @@ $fruit: #ef4444;
 $text: #f1f5f9;
 $panel: #1e293b;
 
-// 🧱 Reset
+// Reset
 * {
   margin: 0;
   padding: 0;
@@ -24,7 +23,7 @@ body {
   overflow: hidden;
 }
 
-// 🧩 Container principal
+//Container principal
 .container {
   background: rgba($panel, 0.9);
   border-radius: 20px;
@@ -137,7 +136,7 @@ body {
   }
 }
 
-// 💀 Tela de Game Over
+// Tela de Game Over
 .game-over-screen {
   position: absolute;
   inset: 0;
@@ -185,7 +184,6 @@ body {
   }
 }
 
-// 🌈 Animações
 @keyframes fadeIn {
   from {
     opacity: 0;
